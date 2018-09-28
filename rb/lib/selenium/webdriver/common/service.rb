@@ -129,11 +129,11 @@ module Selenium
       end
 
       def process_running?
-        defined?(@process) && @process && @process.alive?
+        defined?(@process) && @process&.alive?
       end
 
       def process_exited?
-        @process.nil? || @process.exited?
+        !!@process&.exited?
       end
 
       def connect_until_stable
